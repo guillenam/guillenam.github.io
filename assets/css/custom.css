@@ -1,1 +1,204 @@
+/* =============================================================
+   1. IMPORTACIÓN DE FUENTES (Necesario para la Tarea de Tipografía)
+   ============================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600&display=swap');
 
+/* =============================================================
+   TAREAS ANTERIORES (3, 4 y 5) - Animaciones y Loader
+   ============================================================= */
+
+/* task3 */
+
+/* 1. Fade In */
+@keyframes customFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.anim-fade-in {
+    animation: customFadeInUp 1.5s ease-out forwards;
+}
+
+/* 2.Pulse (Latido para botones al pasar el mouse) */
+@keyframes customPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.anim-hover-pulse:hover {
+    animation: customPulse 0.6s infinite;
+    cursor: pointer;
+}
+
+/* Task4
+ */
+
+.custom-loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.custom-loader {
+    border: 5px solid #f3f3f3; 
+    border-top: 5px solid #0563bb; 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/*Task5*/
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =============================================================
+   NUEVAS TAREAS - DISEÑO VISUAL (Tipografía, Botones, Tarjetas)
+   ============================================================= */
+
+/* --- 1. Typography system (Tipografía) --- */
+
+/* Redefinimos todos los títulos con la fuente Serif "Merriweather" */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif !important;
+    color: #2c3e50; /* Gris azulado oscuro */
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 3.5rem;
+}
+
+/* H2 con la corrección !important para que se vea la línea naranja */
+h2 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    border-bottom: 3px solid #d35400 !important; /* Naranja */
+    display: inline-block !important;
+    padding-bottom: 10px !important;
+}
+
+/* Párrafos con mejor lectura */
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8; /* Más aire entre líneas */
+    color: #555;
+}
+
+/* --- 2. Interactive elements (Enlaces y Botones) --- */
+
+/* Enlaces generales */
+a {
+    color: #d35400 !important;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #e67e22 !important;
+    letter-spacing: 1px; /* Efecto de expansión */
+}
+
+/* Botones (Sobreescribiendo Bootstrap) - Estilo cuadrado y sólido */
+button, .btn {
+    background-color: #2c3e50 !important;
+    color: white !important;
+    border-radius: 0 !important; /* Cuadrados */
+    padding: 12px 25px !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.2); /* Sombra dura */
+    border: none !important;
+    transition: all 0.2s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: #d35400 !important; /* Naranja al pasar mouse */
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.15);
+}
+
+/* --- 3. Spacing scale & surfaces (Espaciado y Tarjetas) --- */
+
+/* Más espacio en las secciones principales */
+#about, #resume, #services {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+    background-color: #fdfcfb; /* Fondo casi blanco */
+}
+
+/* Convertir listas en Tarjetas Flotantes */
+.resume-item, .service-item, .icon-box, .portfolio-item {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto Hover en las tarjetas */
+.resume-item:hover, .service-item:hover {
+    transform: translateY(-5px); /* Se eleva */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-left: 5px solid #d35400; /* Borde naranja lateral */
+}
+
+/* --- 4. Two components restyled (Componentes) --- */
+
+/* COMPONENTE 1: Barras de Progreso (Skills) */
+.progress {
+    background-color: #e9ecef !important;
+    height: 20px !important;
+    border-radius: 10px !important;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.progress-bar {
+    background-color: #d35400 !important;
+    /* Patrón rayado decorativo */
+    background-image: linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    background-size: 1rem 1rem;
+}
+
+/* COMPONENTE 2: Botón "Back to Top" (Flecha subir) */
+#scroll-top {
+    background-color: #2c3e50 !important;
+    border-radius: 0 !important; /* Empieza cuadrado */
+    border: 2px solid white;
+}
+
+#scroll-top:hover {
+    background-color: #d35400 !important;
+    border-radius: 50% !important; /* Se vuelve redondo */
+    transform: rotate(360deg); /* Da una vuelta completa */
+    transition: all 0.5s ease;
+}
