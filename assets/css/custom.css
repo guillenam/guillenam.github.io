@@ -168,4 +168,12 @@ button:active, .btn:active {
     border-radius: 50% !important; /* Se transforma en círculo */
     transform: rotate(360deg) !important; /* Da una vuelta completa */
     transition: all 0.5s ease !important;
+
+    /* CORRECCIÓN: Ocultar las líneas originales de la plantilla */
+.section-title h2::before,
+.section-title h2::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+}
 }
