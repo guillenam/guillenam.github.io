@@ -1,7 +1,4 @@
-/* ============================================================
-   TAREA: TYPOGRAPHY SYSTEM (1.5 pts)
-   Objetivo: Redefinir fuentes, tamaños y jerarquía.
-   ============================================================ */
+
 
 /* 1. Importamos fuentes nuevas: Merriweather (Títulos) y Open Sans (Texto) */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600&display=swap');
@@ -101,10 +98,6 @@ button:active, .btn:active {
     box-shadow: none !important;
 }
 
-/* ============================================================
-   TAREA: SPACING SCALE & SURFACES (1.5 pts)
-   Objetivo: Espaciado consistente y bloques de contenido (tarjetas).
-   ============================================================ */
 
 /* 1. Espaciado consistente en 3 secciones (About, Resume, Services) */
 #about, #resume, #services {
@@ -132,10 +125,6 @@ button:active, .btn:active {
     border-left: 5px solid #d35400 !important; /* Borde lateral naranja */
 }
 
-/* ============================================================
-   TAREA: TWO COMPONENTS RESTYLED (1.5 pts)
-   Objetivo: Cambiar apariencia de 2 componentes sin romper funcionalidad.
-   ============================================================ */
 
 /* COMPONENTE 1: Progress Bars (Barras de Habilidades) */
 /* Cambio: De líneas finas azules a barras gruesas, naranjas y rayadas */
