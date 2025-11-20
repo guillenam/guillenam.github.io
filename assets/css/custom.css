@@ -1,77 +1,41 @@
 /* =============================================================
-   1. IMPORTACIÓN DE FUENTES
+   1. IMPORTACIÓN DE FUENTES (Necesaria para Typography System)
    ============================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600&display=swap');
 
 /* =============================================================
-   TAREAS INICIALES (Animaciones y Loader)
+   DISEÑO VISUAL (Typography, Interactive, Surfaces, Components)
    ============================================================= */
 
-/* Fade In Animation */
-@keyframes customFadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.anim-fade-in { animation: customFadeInUp 1.5s ease-out forwards; }
-
-/* Pulse Animation */
-@keyframes customPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-.anim-hover-pulse:hover { animation: customPulse 0.6s infinite; cursor: pointer; }
-
-/* Loader */
-.custom-loader-container {
-    display: flex; justify-content: center; align-items: center; padding: 20px; width: 100%;
-}
-.custom-loader {
-    border: 5px solid #f3f3f3; border-top: 5px solid #0563bb; border-radius: 50%;
-    width: 50px; height: 50px; animation: spin 1s linear infinite;
-}
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important; scroll-behavior: auto !important;
-    }
-}
-
-/* =============================================================
-   DISEÑO VISUAL (Typography, Interactive, Surfaces)
-   ============================================================= */
-
-/* Typography */
+/* --- TAREA: Typography System --- */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Merriweather', serif !important;
     color: #2c3e50 !important;
     letter-spacing: -0.5px !important;
     margin-bottom: 1.2rem !important;
 }
+
 h1 { font-weight: 700 !important; font-size: 3.5rem !important; line-height: 1.2 !important; }
+
 h2 {
     font-weight: 700 !important; font-size: 2.5rem !important; position: relative;
     display: inline-block !important; padding-bottom: 15px !important;
-    border-bottom: 4px solid #d35400 !important;
+    border-bottom: 4px solid #d35400 !important; /* Línea Naranja */
 }
+
 h3 { font-weight: 300 !important; font-size: 1.75rem !important; color: #555 !important; }
+
 p {
     font-family: 'Open Sans', sans-serif !important; font-size: 1.15rem !important;
     line-height: 1.8 !important; color: #4a4a4a !important; margin-bottom: 1.5rem !important;
 }
 
-/* Corrección: Ocultar líneas antiguas de la plantilla debajo de los títulos */
+/* Ocultar líneas antiguas de la plantilla debajo de los títulos */
 .section-title h2::before, .section-title h2::after {
     display: none !important; content: none !important; width: 0 !important;
 }
 
-/* Interactive Elements */
+/* --- TAREA: Interactive Elements --- */
 a { color: #d35400 !important; text-decoration: none !important; transition: all 0.3s ease-in-out !important; }
 a:hover { color: #e67e22 !important; letter-spacing: 1px !important; }
 
@@ -86,22 +50,26 @@ button:hover, .btn:hover {
     box-shadow: 3px 3px 0px rgba(0,0,0,0.2) !important; transform: translateY(-2px) !important;
 }
 
-/* Spacing & Surfaces */
+/* --- TAREA: Spacing Scale & Surfaces (Tarjetas) --- */
 #about, #resume, #services {
     padding-top: 100px !important; padding-bottom: 100px !important; background-color: #f8f9fa !important;
 }
+
 .resume-item, .service-item, .portfolio-item {
     background-color: #ffffff !important; padding: 40px !important; margin-bottom: 30px !important;
     border: 1px solid #e1e1e1 !important; border-radius: 15px !important;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
+
 .resume-item:hover, .service-item:hover, .portfolio-item:hover {
     transform: translateY(-10px) !important; box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
     border-left: 5px solid #d35400 !important;
 }
 
-/* Components */
+/* --- TAREA: Two Components Restyled --- */
+
+/* 1. Progress Bar (Rayada y Naranja) */
 .progress {
     background-color: #e9ecef !important; height: 25px !important; border-radius: 50px !important;
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.1) !important; overflow: hidden !important;
@@ -111,6 +79,8 @@ button:hover, .btn:hover {
     background-image: linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent) !important;
     background-size: 1rem 1rem !important;
 }
+
+/* 2. Back-to-top Button (Círculo giratorio) */
 #scroll-top {
     background-color: #2c3e50 !important; border-radius: 0 !important; width: 50px !important;
     height: 50px !important; border: 2px solid white !important; opacity: 1 !important;
@@ -121,13 +91,13 @@ button:hover, .btn:hover {
 }
 
 /* =============================================================
-   TAREAS FINALES: LISTAS Y TABLAS (Styled Lists & Tables)
+   TAREAS: STYLED LISTS & TABLES (Listas y Tablas)
    ============================================================= */
 
 /* Contenedor general */
 .custom-lists-container { margin-top: 30px; margin-bottom: 30px; }
 
-/* 1. Lista Ordenada con Contadores */
+/* 1. Lista Ordenada con Contadores (Círculos Azules) */
 ol.styled-counter-list {
     list-style: none !important; counter-reset: my-awesome-counter; padding-left: 0;
 }
@@ -143,11 +113,10 @@ ol.styled-counter-list > li::before {
     font-family: 'Merriweather', serif; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
-/* 2. Lista Desordenada Anidada */
+/* 2. Lista Desordenada Anidada (Rombos Naranjas) */
 ul.styled-icon-list { list-style: none !important; padding-left: 20px; }
 ul.styled-icon-list li { position: relative; padding-left: 25px; margin-bottom: 10px; }
 
-/* Icono Rombo Naranja */
 ul.styled-icon-list li::before {
     content: ""; position: absolute; left: 0; top: 8px; width: 10px; height: 10px;
     background-color: #d35400; transform: rotate(45deg);
@@ -159,6 +128,31 @@ ul.styled-icon-list ul li::before {
     background-color: #2c3e50; border-radius: 50%; width: 8px; height: 8px; transform: none;
 }
 
-/* 3. Tabla Estilizada */
+/* 3. Tabla Estilizada (Header Azul y Zebra) */
 .custom-table-container {
-    overflow-x: auto; margin-top: 30px; border-radius:
+    overflow-x: auto; margin-top: 30px; border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.styled-table {
+    width: 100%; border-collapse: collapse; font-family: 'Open Sans', sans-serif; background-color: white;
+}
+
+/* Encabezado (Forzado con !important) */
+.styled-table thead tr, .styled-table thead th {
+    background-color: #2c3e50 !important; color: #ffffff !important;
+    text-align: left; font-family: 'Merriweather', serif; border-bottom: none !important;
+}
+
+/* Celdas */
+.styled-table th, .styled-table td {
+    padding: 15px 20px !important; border-bottom: 1px solid #dddddd;
+}
+
+/* Zebra Striping */
+.styled-table tbody tr:nth-of-type(even) { background-color: #f8f9fa !important; }
+.styled-table tbody tr:hover { background-color: #fff3cd !important; cursor: default; }
+
+/* Alineación Números */
+.styled-table td.num-col {
+    text-align: right !important; font-family: monospace; font-weight: bold; color: #d35400 !important;
+}
