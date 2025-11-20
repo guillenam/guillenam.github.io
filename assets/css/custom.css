@@ -175,5 +175,171 @@ button:active, .btn:active {
     display: none !important;
     content: none !important;
     width: 0 !important;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* ============================================================
+   NUEVA TAREA: STYLED LISTS (2.0 pts)
+   Uso de pseudo-elementos (::before) y contadores CSS
+   ============================================================ */
+
+/* Contenedor general para las listas nuevas */
+.custom-lists-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* --- 1. Lista Ordenada con Contadores (Ordered List) --- */
+ol.styled-counter-list {
+    list-style: none; /* Quitamos los números por defecto */
+    counter-reset: my-awesome-counter; /* Iniciamos el contador */
+    padding-left: 0;
+}
+
+ol.styled-counter-list > li {
+    counter-increment: my-awesome-counter; /* Aumentamos el contador */
+    position: relative;
+    padding-left: 50px; /* Espacio para el círculo numérico */
+    margin-bottom: 15px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* El número estilizado (Pseudo-elemento) */
+ol.styled-counter-list > li::before {
+    content: counter(my-awesome-counter); /* Inserta el número */
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 35px;
+    height: 35px;
+    background-color: #2c3e50; /* Azul oscuro */
+    color: #fff;
+    border-radius: 50%; /* Círculo perfecto */
+    text-align: center;
+    line-height: 35px;
+    font-weight: bold;
+    font-family: 'Merriweather', serif;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+/* --- 2. Lista Desordenada Anidada (Unordered List + Nested) --- */
+ul.styled-icon-list {
+    list-style: none; /* Quitamos los puntos por defecto */
+    padding-left: 20px;
+}
+
+ul.styled-icon-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+/* Icono personalizado (Cuadrado naranja) usando ::before */
+ul.styled-icon-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    background-color: #d35400; /* Naranja */
+    transform: rotate(45deg); /* Rombo */
+}
+
+/* Estilo para la LISTA ANIDADA (Nested List) */
+ul.styled-icon-list ul {
+    list-style: none;
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 2px solid #eee; /* Línea guía visual */
+}
+
+/* Icono diferente para el nivel anidado */
+ul.styled-icon-list ul li::before {
+    background-color: #2c3e50; /* Azul */
+    border-radius: 50%; /* Círculo pequeño */
+    width: 8px;
+    height: 8px;
+    transform: none;
+}
+
+/* ============================================================
+   NUEVA TAREA: TABLES/DATA BLOCKS (2.0 pts)
+   Header distinto, Zebra striping y Alineación correcta.
+   ============================================================ */
+
+.custom-table-container {
+    overflow-x: auto; /* Para que no rompa en móvil */
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+}
+
+/* Header Row (Fila de encabezado distinta) */
+.styled-table thead tr {
+    background-color: #2c3e50; /* Azul oscuro */
+    color: #ffffff;
+    text-align: left;
+    font-family: 'Merriweather', serif;
+}
+
+.styled-table th, 
+.styled-table td {
+    padding: 15px 20px; /* Padding consistente */
+    border-bottom: 1px solid #dddddd;
+}
+
+/* Zebra Striping (Filas pares de otro color) */
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f8f9fa;
+}
+
+/* Row Hover (Efecto al pasar el mouse) */
+.styled-table tbody tr:hover {
+    background-color: #fff3cd; /* Amarillo muy suave */
+    cursor: default;
+}
+
+/* Alineación específica (Números a la derecha, texto a la izquierda) */
+.styled-table td.text-col {
+    text-align: left;
+}
+
+.styled-table td.num-col {
+    text-align: right; /* Números a la derecha */
+    font-family: monospace; /* Fuente monoespaciada para números */
+    font-weight: bold;
+    color: #d35400;
+}
 }
 }
