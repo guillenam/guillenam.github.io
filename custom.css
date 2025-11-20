@@ -1,8 +1,9 @@
-/* =========================================
-   TAREA 3: ANIMACIONES PERSONALIZADAS
-   ========================================= */
+/* IMPORTANTE: Importar fuentes de Google (Debe ir en la primera línea) */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600&display=swap');
 
-/* 1. Animación Fade In (Aparición suave desde abajo) */
+/* task3 */
+
+/* 1. Fade In */
 @keyframes customFadeInUp {
     from {
         opacity: 0;
@@ -14,27 +15,25 @@
     }
 }
 
-/* Clase para aplicar la animación 1 */
+
 .anim-fade-in {
     animation: customFadeInUp 1.5s ease-out forwards;
 }
 
-/* 2. Animación Pulse (Latido para botones al pasar el mouse) */
+/* 2.Pulse (Latido para botones al pasar el mouse) */
 @keyframes customPulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
 
-/* Clase para aplicar la animación 2 al pasar el mouse */
 .anim-hover-pulse:hover {
     animation: customPulse 0.6s infinite;
     cursor: pointer;
 }
 
-/* =========================================
-   TAREA 4: LOADER (CARGADOR) CSS
-   ========================================= */
+/* Task4
+ */
 
 .custom-loader-container {
     display: flex;
@@ -45,8 +44,8 @@
 }
 
 .custom-loader {
-    border: 5px solid #f3f3f3; /* Gris claro */
-    border-top: 5px solid #0563bb; /* Azul (color de tu plantilla) */
+    border: 5px solid #f3f3f3; 
+    border-top: 5px solid #0563bb; 
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -58,9 +57,7 @@
     100% { transform: rotate(360deg); }
 }
 
-/* =========================================
-   TAREA 5: ACCESIBILIDAD (REDUCED MOTION)
-   ========================================= */
+/*Task5*/
 
 @media (prefers-reduced-motion: reduce) {
     *,
@@ -72,3 +69,63 @@
         scroll-behavior: auto !important;
     }
 }
+
+
+/*  1. Typography  */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif !important; /* Fuente con serifa */
+    color: #2c3e50; /* Azul oscuro */
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    border-bottom: 3px solid #d35400; 
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8; /* Más espacio entre líneas */
+    color: #555;
+}
+
+/* 2. Interactive elements  */
+
+a {
+    color: #d35400 !important; 
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #e67e22 !important;
+    letter-spacing: 1px; 
+}
+
+/* Bottons */
+button, .btn {
+    background-color: #2c3e50 !important;
+    color: white !important;
+    border-radius: 0 !important;
+    padding: 12px 25px !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+    border: none !important;
+    transition: all 0.2s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: #d35400 !important;
+    transform: translateY(-2px);
+    box-shadow: 6px 6
