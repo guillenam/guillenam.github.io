@@ -41,7 +41,7 @@ a {
     transition: all 0.3s ease-in-out !important; 
 }
 a:hover { color: #e67e22 !important; letter-spacing: 1px !important; }
-/* Estado Active (Requisito cumplido) */
+/* Estado Active (Requisito cumplido: click presionado) */
 a:active { color: #a04000 !important; transform: translateY(1px) !important; }
 
 button, .btn {
@@ -54,7 +54,7 @@ button:hover, .btn:hover {
     background-color: #ffffff !important; color: #d35400 !important; border-color: #d35400 !important;
     box-shadow: 3px 3px 0px rgba(0,0,0,0.2) !important; transform: translateY(-2px) !important;
 }
-/* Estado Active (Requisito cumplido) */
+/* Estado Active (Requisito cumplido: click presionado) */
 button:active, .btn:active {
     background-color: #d35400 !important; color: white !important;
     box-shadow: 1px 1px 0px rgba(0,0,0,0.2) !important; transform: translateY(1px) !important;
@@ -79,25 +79,26 @@ button:active, .btn:active {
 
 /* --- TAREA: Two Components Restyled (1.5 pts) --- */
 
-/* Comp 1. Progress Bar (CORREGIDO: Altura forzada para ver las rayas) */
-.progress, 
-.progress-bar-wrap, 
-.progress-bar {
-    height: 25px !important;       /* Altura fija */
-    min-height: 25px !important;   /* Evita que se aplaste */
-    border-radius: 50px !important;
-}
-
-.progress {
+/* Comp 1. Progress Bar (CORREGIDO: Altura, Relleno y Márgenes) */
+/* El contenedor gris */
+.progress, .progress-bar-wrap {
+    height: 25px !important;           
     background-color: #e9ecef !important; 
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1) !important; 
+    border-radius: 50px !important;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1) !important;
     overflow: hidden !important;
-    margin-bottom: 20px !important;
+    margin-top: 10px !important;       /* Separa la barra del texto superior */
+    margin-bottom: 25px !important;    /* Espacio debajo */
 }
 
+/* La barra naranja interna */
 .progress-bar {
+    height: 100% !important;           /* Ocupa todo el alto del contenedor */
+    line-height: 25px !important;
     background-color: #d35400 !important;
-    /* Degradado de rayas diagonales */
+    border-radius: 0 !important;       /* El radio lo da el padre, o puedes poner 50px si prefieres */
+    
+    /* Degradado de rayas */
     background-image: linear-gradient(
         45deg, 
         rgba(255,255,255,.25) 25%, 
@@ -122,7 +123,7 @@ button:active, .btn:active {
 }
 
 /* =============================================================
-   TAREAS: STYLED LISTS & TABLES (NUEVOS REQUISITOS)
+   TAREAS: STYLED LISTS & TABLES (NUEVOS REQUISITOS - 4.0 pts)
    ============================================================= */
 
 /* Contenedor general opcional */
