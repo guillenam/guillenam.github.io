@@ -20,7 +20,7 @@ h1 { font-weight: 700 !important; font-size: 3.5rem !important; line-height: 1.2
 h2 {
     font-weight: 700 !important; font-size: 2.5rem !important; position: relative;
     display: inline-block !important; padding-bottom: 15px !important;
-    border-bottom: 4px solid #d35400 !important; /* Línea Naranja debajo del título */
+    border-bottom: 4px solid #d35400 !important; /* Línea Naranja */
 }
 
 h3 { font-weight: 300 !important; font-size: 1.75rem !important; color: #555 !important; }
@@ -30,21 +30,20 @@ p {
     line-height: 1.8 !important; color: #4a4a4a !important; margin-bottom: 1.5rem !important;
 }
 
-/* Ocultar decoraciones de la plantilla original */
+/* Ocultar decoraciones antiguas de la plantilla */
 .section-title h2::before, .section-title h2::after {
     display: none !important; content: none !important; width: 0 !important;
 }
 
 /* --- TAREA: Interactive Elements (1.5 pts) --- */
-/* Enlaces */
 a { 
     color: #d35400 !important; text-decoration: none !important; 
     transition: all 0.3s ease-in-out !important; 
 }
 a:hover { color: #e67e22 !important; letter-spacing: 1px !important; }
+/* Estado Active (Requerido: click presionado) */
 a:active { color: #a04000 !important; transform: translateY(1px) !important; }
 
-/* Botones */
 button, .btn {
     background-color: #2c3e50 !important; color: #ffffff !important; border-radius: 0px !important;
     border: 2px solid #2c3e50 !important; padding: 12px 30px !important;
@@ -79,29 +78,25 @@ button:active, .btn:active {
 
 /* --- TAREA: Two Components Restyled (1.5 pts) --- */
 
-/* COMPONENTE 1: PROGRESS BAR (CORREGIDO) */
-
-/* El contenedor exterior (El tubo gris) */
-/* Usamos ambos selectores para asegurar compatibilidad con tu plantilla */
+/* 1. Progress Bar (FIXED: Altura forzada en px) */
 .progress, .progress-bar-wrap {
-    height: 25px !important;           /* Altura forzada */
+    height: 25px !important;           
     background-color: #e9ecef !important; 
     border-radius: 50px !important;
-    overflow: visible !important;      /* Cambiado a visible por si acaso */
+    overflow: hidden !important; 
     border: none !important;
-    
-    /* MARGEN CLAVE: Esto separa la barra del texto que tiene encima */
-    margin-top: 10px !important;       
+    /* Margen importante para separar del texto */
+    margin-top: 15px !important;       
     margin-bottom: 25px !important;
 }
 
-/* La barra interior (El relleno naranja) */
 .progress-bar {
-    height: 100% !important;           /* CLAVE: Ocupa toda la altura del padre */
+    height: 25px !important; /* Forzamos altura igual al padre */
+    display: block !important;
     background-color: #d35400 !important;
     border-radius: 50px !important;    
     
-    /* El degradado de rayas */
+    /* Degradado de rayas */
     background-image: linear-gradient(
         45deg, 
         rgba(255,255,255,.25) 25%, 
@@ -115,7 +110,7 @@ button:active, .btn:active {
     background-size: 1rem 1rem !important;
 }
 
-/* COMPONENTE 2: BACK-TO-TOP BUTTON */
+/* 2. Back-to-top Button */
 #scroll-top {
     background-color: #2c3e50 !important; border-radius: 0 !important; width: 50px !important;
     height: 50px !important; border: 2px solid white !important; opacity: 1 !important;
@@ -126,12 +121,10 @@ button:active, .btn:active {
 }
 
 /* =============================================================
-   TAREAS: STYLED LISTS & TABLES (2.0 pts + 2.0 pts)
+   TAREAS: STYLED LISTS & TABLES (Nuevos requisitos)
    ============================================================= */
 
-.custom-lists-container { margin-top: 30px; margin-bottom: 30px; }
-
-/* 1. Styled Lists: Lista Ordenada con Contadores */
+/* 1. Styled Lists: Lista Ordenada */
 ol.styled-counter-list {
     list-style: none !important; counter-reset: my-awesome-counter; padding-left: 0;
 }
@@ -147,41 +140,35 @@ ol.styled-counter-list > li::before {
     font-family: 'Merriweather', serif; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
-/* 2. Styled Lists: Lista Desordenada (Anidada) */
+/* 2. Styled Lists: Lista Desordenada */
 ul.styled-icon-list { list-style: none !important; padding-left: 20px; }
 ul.styled-icon-list li { position: relative; padding-left: 25px; margin-bottom: 10px; }
-
 ul.styled-icon-list li::before {
     content: ""; position: absolute; left: 0; top: 8px; width: 10px; height: 10px;
-    background-color: #d35400; transform: rotate(45deg); /* Rombo naranja */
+    background-color: #d35400; transform: rotate(45deg); 
 }
-
 ul.styled-icon-list ul { list-style: none; margin-top: 10px; padding-left: 20px; border-left: 2px solid #eee; }
 ul.styled-icon-list ul li::before {
-    background-color: #2c3e50; border-radius: 50%; width: 8px; height: 8px; transform: none; /* Círculo azul */
+    background-color: #2c3e50; border-radius: 50%; width: 8px; height: 8px; transform: none; 
 }
 
-/* 3. Tables: Tabla Estilizada */
+/* 3. Tables */
 .custom-table-container {
     overflow-x: auto; margin-top: 30px; border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px;
 }
 .styled-table {
     width: 100%; border-collapse: collapse; font-family: 'Open Sans', sans-serif; background-color: white;
 }
-
 .styled-table thead tr, .styled-table thead th {
     background-color: #2c3e50 !important; color: #ffffff !important;
     text-align: left; font-family: 'Merriweather', serif; border-bottom: none !important;
 }
-
 .styled-table th, .styled-table td {
     padding: 15px 20px !important; border-bottom: 1px solid #dddddd;
 }
-
 .styled-table tbody tr:nth-of-type(even) { background-color: #f8f9fa !important; }
 .styled-table tbody tr:hover { background-color: #fff3cd !important; cursor: default; }
-
 .styled-table td.num-col {
     text-align: right !important; font-family: monospace; font-weight: bold; color: #d35400 !important;
 }
