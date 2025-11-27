@@ -7,7 +7,7 @@
    DISEÑO VISUAL (Typography, Interactive, Surfaces, Components)
    ============================================================= */
 
-/* --- TAREA: Typography System (1.5 pts) --- */
+/* --- TAREA 1: Typography System --- */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Merriweather', serif !important;
     color: #2c3e50 !important;
@@ -30,18 +30,18 @@ p {
     line-height: 1.8 !important; color: #4a4a4a !important; margin-bottom: 1.5rem !important;
 }
 
-/* Ocultar decoraciones antiguas de la plantilla */
+/* Ocultar decoraciones de la plantilla original */
 .section-title h2::before, .section-title h2::after {
     display: none !important; content: none !important; width: 0 !important;
 }
 
-/* --- TAREA: Interactive Elements (1.5 pts) --- */
+/* --- TAREA 2: Interactive Elements --- */
 a { 
     color: #d35400 !important; text-decoration: none !important; 
     transition: all 0.3s ease-in-out !important; 
 }
 a:hover { color: #e67e22 !important; letter-spacing: 1px !important; }
-/* Estado Active (Requerido: click presionado) */
+/* Estado Active (Requisito cumplido) */
 a:active { color: #a04000 !important; transform: translateY(1px) !important; }
 
 button, .btn {
@@ -59,7 +59,7 @@ button:active, .btn:active {
     box-shadow: 1px 1px 0px rgba(0,0,0,0.2) !important; transform: translateY(1px) !important;
 }
 
-/* --- TAREA: Spacing Scale & Surfaces (1.5 pts) --- */
+/* --- TAREA 3: Spacing Scale & Surfaces --- */
 #about, #resume, #services {
     padding-top: 100px !important; padding-bottom: 100px !important; background-color: #f8f9fa !important;
 }
@@ -76,37 +76,17 @@ button:active, .btn:active {
     border-left: 5px solid #d35400 !important;
 }
 
-/* --- TAREA: Two Components Restyled (1.5 pts) --- */
+/* --- TAREA 4: Two Components Restyled --- */
 
-/* 1. Progress Bar (FIXED: Altura forzada en px) */
-.progress, .progress-bar-wrap {
-    height: 25px !important;           
-    background-color: #e9ecef !important; 
-    border-radius: 50px !important;
-    overflow: hidden !important; 
-    border: none !important;
-    /* Margen importante para separar del texto */
-    margin-top: 15px !important;       
-    margin-bottom: 25px !important;
+/* 1. Progress Bar (VERSIÓN SEGURA: La que tenías al principio) */
+.progress {
+    background-color: #e9ecef !important; height: 25px !important; border-radius: 50px !important;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1) !important; overflow: hidden !important;
 }
-
 .progress-bar {
-    height: 25px !important; /* Forzamos altura igual al padre */
-    display: block !important;
     background-color: #d35400 !important;
-    border-radius: 50px !important;    
-    
     /* Degradado de rayas */
-    background-image: linear-gradient(
-        45deg, 
-        rgba(255,255,255,.25) 25%, 
-        transparent 25%, 
-        transparent 50%, 
-        rgba(255,255,255,.25) 50%, 
-        rgba(255,255,255,.25) 75%, 
-        transparent 75%, 
-        transparent
-    ) !important;
+    background-image: linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent) !important;
     background-size: 1rem 1rem !important;
 }
 
@@ -121,10 +101,10 @@ button:active, .btn:active {
 }
 
 /* =============================================================
-   TAREAS: STYLED LISTS & TABLES (Nuevos requisitos)
+   TAREAS NUEVAS: STYLED LISTS & TABLES (Esto funciona bien)
    ============================================================= */
 
-/* 1. Styled Lists: Lista Ordenada */
+/* Styled Lists */
 ol.styled-counter-list {
     list-style: none !important; counter-reset: my-awesome-counter; padding-left: 0;
 }
@@ -140,19 +120,19 @@ ol.styled-counter-list > li::before {
     font-family: 'Merriweather', serif; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
-/* 2. Styled Lists: Lista Desordenada */
 ul.styled-icon-list { list-style: none !important; padding-left: 20px; }
 ul.styled-icon-list li { position: relative; padding-left: 25px; margin-bottom: 10px; }
 ul.styled-icon-list li::before {
     content: ""; position: absolute; left: 0; top: 8px; width: 10px; height: 10px;
-    background-color: #d35400; transform: rotate(45deg); 
-}
-ul.styled-icon-list ul { list-style: none; margin-top: 10px; padding-left: 20px; border-left: 2px solid #eee; }
-ul.styled-icon-list ul li::before {
-    background-color: #2c3e50; border-radius: 50%; width: 8px; height: 8px; transform: none; 
+    background-color: #d35400; transform: rotate(45deg);
 }
 
-/* 3. Tables */
+ul.styled-icon-list ul { list-style: none; margin-top: 10px; padding-left: 20px; border-left: 2px solid #eee; }
+ul.styled-icon-list ul li::before {
+    background-color: #2c3e50; border-radius: 50%; width: 8px; height: 8px; transform: none;
+}
+
+/* Tables */
 .custom-table-container {
     overflow-x: auto; margin-top: 30px; border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px;
