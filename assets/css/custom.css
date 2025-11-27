@@ -36,14 +36,15 @@ p {
 }
 
 /* --- TAREA: Interactive Elements (1.5 pts) --- */
+/* Enlaces */
 a { 
     color: #d35400 !important; text-decoration: none !important; 
     transition: all 0.3s ease-in-out !important; 
 }
 a:hover { color: #e67e22 !important; letter-spacing: 1px !important; }
-/* Estado Active (Requisito cumplido: click presionado) */
 a:active { color: #a04000 !important; transform: translateY(1px) !important; }
 
+/* Botones */
 button, .btn {
     background-color: #2c3e50 !important; color: #ffffff !important; border-radius: 0px !important;
     border: 2px solid #2c3e50 !important; padding: 12px 30px !important;
@@ -54,7 +55,6 @@ button:hover, .btn:hover {
     background-color: #ffffff !important; color: #d35400 !important; border-color: #d35400 !important;
     box-shadow: 3px 3px 0px rgba(0,0,0,0.2) !important; transform: translateY(-2px) !important;
 }
-/* Estado Active (Requisito cumplido: click presionado) */
 button:active, .btn:active {
     background-color: #d35400 !important; color: white !important;
     box-shadow: 1px 1px 0px rgba(0,0,0,0.2) !important; transform: translateY(1px) !important;
@@ -79,26 +79,29 @@ button:active, .btn:active {
 
 /* --- TAREA: Two Components Restyled (1.5 pts) --- */
 
-/* Comp 1. Progress Bar (CORREGIDO: Altura, Relleno y Márgenes) */
-/* El contenedor gris */
+/* COMPONENTE 1: PROGRESS BAR (CORREGIDO) */
+
+/* El contenedor exterior (El tubo gris) */
+/* Usamos ambos selectores para asegurar compatibilidad con tu plantilla */
 .progress, .progress-bar-wrap {
-    height: 25px !important;           
+    height: 25px !important;           /* Altura forzada */
     background-color: #e9ecef !important; 
     border-radius: 50px !important;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1) !important;
-    overflow: hidden !important;
-    margin-top: 10px !important;       /* Separa la barra del texto superior */
-    margin-bottom: 25px !important;    /* Espacio debajo */
+    overflow: visible !important;      /* Cambiado a visible por si acaso */
+    border: none !important;
+    
+    /* MARGEN CLAVE: Esto separa la barra del texto que tiene encima */
+    margin-top: 10px !important;       
+    margin-bottom: 25px !important;
 }
 
-/* La barra naranja interna */
+/* La barra interior (El relleno naranja) */
 .progress-bar {
-    height: 100% !important;           /* Ocupa todo el alto del contenedor */
-    line-height: 25px !important;
+    height: 100% !important;           /* CLAVE: Ocupa toda la altura del padre */
     background-color: #d35400 !important;
-    border-radius: 0 !important;       /* El radio lo da el padre, o puedes poner 50px si prefieres */
+    border-radius: 50px !important;    
     
-    /* Degradado de rayas */
+    /* El degradado de rayas */
     background-image: linear-gradient(
         45deg, 
         rgba(255,255,255,.25) 25%, 
@@ -112,7 +115,7 @@ button:active, .btn:active {
     background-size: 1rem 1rem !important;
 }
 
-/* Comp 2. Back-to-top Button (Círculo giratorio) */
+/* COMPONENTE 2: BACK-TO-TOP BUTTON */
 #scroll-top {
     background-color: #2c3e50 !important; border-radius: 0 !important; width: 50px !important;
     height: 50px !important; border: 2px solid white !important; opacity: 1 !important;
@@ -123,15 +126,12 @@ button:active, .btn:active {
 }
 
 /* =============================================================
-   TAREAS: STYLED LISTS & TABLES (NUEVOS REQUISITOS - 4.0 pts)
+   TAREAS: STYLED LISTS & TABLES (2.0 pts + 2.0 pts)
    ============================================================= */
 
-/* Contenedor general opcional */
 .custom-lists-container { margin-top: 30px; margin-bottom: 30px; }
 
-/* --- TAREA: Styled Lists (2.0 pts) --- */
-
-/* 1. Lista Ordenada con Contadores (Pseudo-elements/Counters) */
+/* 1. Styled Lists: Lista Ordenada con Contadores */
 ol.styled-counter-list {
     list-style: none !important; counter-reset: my-awesome-counter; padding-left: 0;
 }
@@ -147,24 +147,21 @@ ol.styled-counter-list > li::before {
     font-family: 'Merriweather', serif; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
-/* 2. Lista Desordenada con Nesting (Anidada) */
+/* 2. Styled Lists: Lista Desordenada (Anidada) */
 ul.styled-icon-list { list-style: none !important; padding-left: 20px; }
 ul.styled-icon-list li { position: relative; padding-left: 25px; margin-bottom: 10px; }
 
-/* Pseudo-elemento para el rombo naranja */
 ul.styled-icon-list li::before {
     content: ""; position: absolute; left: 0; top: 8px; width: 10px; height: 10px;
-    background-color: #d35400; transform: rotate(45deg);
+    background-color: #d35400; transform: rotate(45deg); /* Rombo naranja */
 }
 
-/* Estilo para la lista anidada (Nested List) */
 ul.styled-icon-list ul { list-style: none; margin-top: 10px; padding-left: 20px; border-left: 2px solid #eee; }
 ul.styled-icon-list ul li::before {
     background-color: #2c3e50; border-radius: 50%; width: 8px; height: 8px; transform: none; /* Círculo azul */
 }
 
-/* --- TAREA: Tables/Data Blocks (2.0 pts) --- */
-
+/* 3. Tables: Tabla Estilizada */
 .custom-table-container {
     overflow-x: auto; margin-top: 30px; border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -173,24 +170,18 @@ ul.styled-icon-list ul li::before {
     width: 100%; border-collapse: collapse; font-family: 'Open Sans', sans-serif; background-color: white;
 }
 
-/* Header Distintivo */
 .styled-table thead tr, .styled-table thead th {
     background-color: #2c3e50 !important; color: #ffffff !important;
     text-align: left; font-family: 'Merriweather', serif; border-bottom: none !important;
 }
 
-/* Celdas y Padding consistente */
 .styled-table th, .styled-table td {
     padding: 15px 20px !important; border-bottom: 1px solid #dddddd;
 }
 
-/* Zebra Striping (Filas alternas) */
 .styled-table tbody tr:nth-of-type(even) { background-color: #f8f9fa !important; }
-
-/* Row Hover (Efecto al pasar el ratón) */
 .styled-table tbody tr:hover { background-color: #fff3cd !important; cursor: default; }
 
-/* Alineación Números (Requiere class="num-col" en HTML) */
 .styled-table td.num-col {
     text-align: right !important; font-family: monospace; font-weight: bold; color: #d35400 !important;
 }
