@@ -1,9 +1,13 @@
-/* IMPORTANTE: Importar fuentes de Google (Debe ir en la primera línea) */
+/* ==============================================
+   CUSTOM10.CSS - Lab Task 10 (Animations)
+   ============================================== */
+
+/* IMPORTANTE: Importar fuentes (Debe ir primera línea) */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600&display=swap');
 
-/* task3 */
+/* --- TASK 3: Custom Animations --- */
 
-/* 1. Fade In */
+/* 1. Fade In Up (Aparición desde abajo) */
 @keyframes customFadeInUp {
     from {
         opacity: 0;
@@ -15,26 +19,25 @@
     }
 }
 
-
 .anim-fade-in {
+    /* Se ejecuta una vez, dura 1.5s */
     animation: customFadeInUp 1.5s ease-out forwards;
 }
 
-/* 2.Pulse (Latido para botones al pasar el mouse) */
+/* 2. Pulse (Latido para Hover) */
 @keyframes customPulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    50% { transform: scale(1.05); } /* Crece un 5% */
     100% { transform: scale(1); }
 }
 
 .anim-hover-pulse:hover {
-    animation: customPulse 0.6s infinite;
+    /* Infinito mientras el ratón esté encima */
+    animation: customPulse 0.6s infinite; 
     cursor: pointer;
 }
 
-/* Task4
- */
-
+/* --- TASK 4: CSS Loader --- */
 .custom-loader-container {
     display: flex;
     justify-content: center;
@@ -44,8 +47,8 @@
 }
 
 .custom-loader {
-    border: 5px solid #f3f3f3; 
-    border-top: 5px solid #0563bb; 
+    border: 5px solid #f3f3f3; /* Gris claro */
+    border-top: 5px solid #0563bb; /* Azul (Color principal) */
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -57,8 +60,39 @@
     100% { transform: rotate(360deg); }
 }
 
-/*Task5*/
+/* --- OPTIONAL TASK: Gradient Background Animation --- */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
+.anim-gradient-bg {
+    background: linear-gradient(-45deg, #0563bb, #23a6d5, #23d5ab, #0563bb);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: white !important; /* Texto blanco para contraste */
+}
+
+/* --- OPTIONAL TASK: Floating Shapes --- */
+@keyframes floatShape {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.floating-shape {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(5, 99, 187, 0.1); /* Azul muy transparente */
+    border: 2px solid rgba(5, 99, 187, 0.3);
+    border-radius: 50%; /* Círculo */
+    position: absolute; /* Para colocarlo donde quieras */
+    z-index: -1; /* Detrás del texto */
+    animation: floatShape 6s ease-in-out infinite;
+}
+
+/* --- TASK 5: Accessibility (Prefers Reduced Motion) --- */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -69,5 +103,3 @@
         scroll-behavior: auto !important;
     }
 }
-
-
