@@ -2,43 +2,62 @@
    CUSTOM10.CSS - Lab Task 10 (Animations & Extras)
    ============================================== */
 
-/* IMPORTANTE: Importar fuentes (Debe ir en la primera línea) */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600&display=swap');
 
-/* --- TASK 3: Custom Animations (Required) --- */
+/* --- CORRECCIÓN HERO: OCULTAR FOTO Y FORZAR CÍRCULOS --- */
 
-/* 1. Fade In Up (Aparición suave desde abajo) */
+/* 1. Ocultar la foto gigante del fondo (Lo que has pedido) */
+#hero img {
+    display: none !important;
+}
+
+/* 2. Círculos Flotantes (Z-INDEX 999 para que se vean SÍ o SÍ) */
+@keyframes floatShape {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(15deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.floating-shape {
+    width: 100px;  /* Más grandes */
+    height: 100px;
+    background-color: rgba(5, 99, 187, 0.4); /* Azul más visible (menos transparente) */
+    border: 3px solid #0563bb; /* Borde sólido azul */
+    border-radius: 50%; 
+    position: absolute; 
+    
+    /* LA CLAVE: Z-Index altísimo para estar encima de todo */
+    z-index: 999 !important; 
+    pointer-events: none; /* Los clics lo atraviesan */
+    
+    animation: floatShape 6s ease-in-out infinite;
+}
+
+/* --- TASK 3: Custom Animations --- */
+
+/* Fade In Up */
 @keyframes customFadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .anim-fade-in {
-    /* Se ejecuta una vez, dura 1.5s, se queda en el estado final */
     animation: customFadeInUp 1.5s ease-out forwards;
 }
 
-/* 2. Pulse (Latido para botones/iconos al pasar el mouse) */
+/* Pulse (Latido) */
 @keyframes customPulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.15); } /* Crece un 15% para que se note más */
+    50% { transform: scale(1.15); }
     100% { transform: scale(1); }
 }
 
 .anim-hover-pulse:hover {
-    /* Infinito mientras el ratón esté encima */
     animation: customPulse 0.8s infinite ease-in-out; 
     cursor: pointer;
 }
 
-/* --- TASK 4: CSS Loader (Required) --- */
-
+/* --- TASK 4: CSS Loader --- */
 .custom-loader-container {
     display: flex;
     justify-content: center;
@@ -48,8 +67,8 @@
 }
 
 .custom-loader {
-    border: 5px solid rgba(255, 255, 255, 0.3); /* Borde suave transparente */
-    border-top: 5px solid #ffffff; /* Parte superior blanca brillante */
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #ffffff;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -61,8 +80,7 @@
     100% { transform: rotate(360deg); }
 }
 
-/* --- OPTIONAL TASK: Gradient Background Animation (4 pts) --- */
-
+/* --- OPTIONAL TASK: Gradient Background --- */
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -70,48 +88,21 @@
 }
 
 .anim-gradient-bg {
-    /* Degradado animado (Azul oscuro a turquesa) */
     background: linear-gradient(-45deg, #2c3e50, #0563bb, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradientBG 10s ease infinite;
-    color: white !important; /* Texto blanco para que se lea bien */
+    color: white !important;
 }
 
-/* Ajustes para enlaces dentro del footer con fondo animado */
 .anim-gradient-bg a, 
 .anim-gradient-bg h3, 
 .anim-gradient-bg span {
     color: white !important;
 }
 
-/* --- OPTIONAL TASK: Floating Shapes (4 pts) --- */
-
-@keyframes floatShape {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-30px) rotate(15deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
-}
-
-.floating-shape {
-    width: 80px;  /* Un poco más grandes para que se vean */
-    height: 80px;
-    background-color: rgba(5, 99, 187, 0.2); /* Azul semitransparente */
-    border: 2px solid rgba(5, 99, 187, 0.5); /* Borde más visible */
-    border-radius: 50%; 
-    position: absolute; 
-    
-    /* CORRECCIÓN VISUAL: */
-    z-index: 1; /* Traer al frente (encima de la foto de fondo) */
-    pointer-events: none; /* Importante: Permite hacer clic a través de ellos */
-    
-    animation: floatShape 6s ease-in-out infinite;
-}
-
-/* --- TASK 5: Accessibility (Prefers Reduced Motion) --- */
+/* --- TASK 5: Accessibility --- */
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
