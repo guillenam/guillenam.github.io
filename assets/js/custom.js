@@ -1,10 +1,9 @@
 /* ==============================================
-   CUSTOM.JS - Lógica del Formulario (Task 3)
+   CUSTOM.JS - Versión Final (Con corrección de altura)
    ============================================== */
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Elementos del DOM
     const form = document.getElementById('contactForm');
     const submitBtn = document.getElementById('submitBtn');
     
@@ -15,38 +14,52 @@ document.addEventListener('DOMContentLoaded', function() {
     const addressInput = document.getElementById('address');
     const messageInput = document.getElementById('message');
     
-    // Array con las 3 valoraciones
     const ratings = [
         document.getElementById('rating1'),
         document.getElementById('rating2'),
         document.getElementById('rating3')
     ];
 
-    // --- TAREA OPCIONAL: Máscara de Teléfono (+370 6xx xxxxx) ---
+    // --- 1. MÁSCARA Y VALIDACIÓN DE TELÉFONO ---
     if(phoneInput) {
         phoneInput.addEventListener('input', function(e) {
-            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,5})/);
-            e.target.value = !x[2] ? x[1] : '+' + x[1] + ' ' + x[2] + (x[3] ? ' ' + x[3] : '');
+            let rawValue = e.target.value.replace(/\D/g, '');
+            
+            if (rawValue.length === 0) {
+                e.target.value = "";
+                validateField(phoneInput);
+                checkFormValidity();
+                return;
+            }
+
+            if (rawValue.length > 11) {
+                rawValue = rawValue.substring(0, 11);
+            }
+
+            let formatted = "";
+            if (rawValue.length > 0) formatted = "+" + rawValue.substring(0, 3);
+            if (rawValue.length > 3) formatted += " " + rawValue.substring(3, 6);
+            if (rawValue.length > 6) formatted += " " + rawValue.substring(6, 11);
+
+            e.target.value = formatted;
             
             validateField(phoneInput); 
             checkFormValidity();
         });
     }
 
-    // --- TAREA OPCIONAL: Validación en Tiempo Real ---
+    // --- 2. VALIDACIÓN GENÉRICA ---
     function validateField(input) {
         if(!input) return;
         const value = input.value.trim();
         let isValid = true;
         let errorMessage = '';
-        const errorDisplay = input.nextElementSibling; // El tag <small>
+        const errorDisplay = input.nextElementSibling; 
 
-        // Validar vacío
         if (value === '') {
             isValid = false;
             errorMessage = 'This field cannot be empty.';
         } else {
-            // Validaciones específicas
             switch(input.id) {
                 case 'name':
                 case 'surname':
@@ -56,14 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) { isValid = false; errorMessage = 'Invalid email format.'; }
                     break;
                 case 'phone':
-                    // SOLUCIÓN NUEVA: Contamos solo los dígitos reales
-                    const digits = value.replace(/\D/g, ''); // Elimina +, espacios, etc.
-                    
-                    // Necesitamos exactamente 11 dígitos (ej: 37060012345)
-                    if (digits.length < 11) { 
-                        isValid = false; 
-                        errorMessage = 'Format: +370 6xx xxxxx'; 
-                    }
+                    const digits = value.replace(/\D/g, ''); 
+                    if (digits.length !== 11) { isValid = false; errorMessage = 'Format: +370 6xx xxxxx (11 digits)'; }
                     break;
                 case 'rating1':
                 case 'rating2':
@@ -73,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Estilos visuales
         if (isValid) {
             input.classList.remove('is-invalid');
             input.classList.add('is-valid');
@@ -86,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return isValid;
     }
 
-    // --- TAREA OPCIONAL: Bloquear botón ---
+    // --- 3. BLOQUEO DEL BOTÓN ---
     function checkFormValidity() {
         const allInputs = [nameInput, surnameInput, emailInput, phoneInput, addressInput, messageInput, ...ratings];
         const allValid = allInputs.every(input => input && input.classList.contains('is-valid'));
@@ -102,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Activar listeners
     const allInputs = [nameInput, surnameInput, emailInput, phoneInput, addressInput, messageInput, ...ratings];
     allInputs.forEach(input => {
         if(!input) return;
@@ -110,25 +115,21 @@ document.addEventListener('DOMContentLoaded', function() {
         input.addEventListener('blur', () => { if (input.id !== 'phone') validateField(input); checkFormValidity(); });
     });
 
-    // --- PROCESAR ENVÍO ---
+    // --- 4. ENVÍO DEL FORMULARIO ---
     if(form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Recoger datos
             const formData = {
                 Name: nameInput.value,
                 Surname: surnameInput.value,
                 Email: emailInput.value,
                 Phone: phoneInput.value,
                 Address: addressInput.value,
-                Ratings: ratings.map(r => parseInt(r.value)),
+                Ratings: ratings.map(r => parseInt(r.value) || 0),
                 Message: messageInput.value
             };
 
-            console.log('Form Data Object:', formData);
-
-            // Calcular Promedio y Color
             const sum = formData.Ratings.reduce((a, b) => a + b, 0);
             const average = (sum / formData.Ratings.length).toFixed(1);
             
@@ -136,12 +137,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (average < 4) colorClass = 'avg-red';
             else if (average < 7) colorClass = 'avg-orange';
 
-            // Mostrar resultados
             const resultsDiv = document.getElementById('form-results');
             const contentDiv = document.getElementById('results-content');
             
-            if(resultsDiv && contentDiv) {
+            if(resultsDiv) {
+                // 1. Mostrar el bloque
                 resultsDiv.style.display = 'block';
+                
                 contentDiv.innerHTML = `
                     <p><strong>Name:</strong> ${formData.Name}</p>
                     <p><strong>Surname:</strong> ${formData.Surname}</p>
@@ -153,17 +155,26 @@ document.addEventListener('DOMContentLoaded', function() {
                         <strong>Result:</strong> ${formData.Name} ${formData.Surname}: <span class="${colorClass}">${average}</span>
                     </p>
                 `;
+
+                // --- SOLUCIÓN AÑADIDA: ARREGLAR SUPERPOSICIÓN DEL FOOTER ---
+                
+                // A. Refrescar AOS para que recalcule la altura de la página
+                if (typeof AOS !== 'undefined') {
+                    setTimeout(() => { AOS.refresh(); }, 100); 
+                }
+
+                // B. Bajar la pantalla automáticamente hasta los resultados para verlos bien
+                setTimeout(() => {
+                    resultsDiv.scrollIntoView({ behavior: "smooth", block: "center" });
+                }, 200);
             }
 
-            // Mostrar Popup
             const popup = document.getElementById('success-popup');
             if(popup) popup.style.display = 'flex';
         });
     }
 });
 
-// Función global para cerrar popup
 window.closePopup = function() {
-    const popup = document.getElementById('success-popup');
-    if(popup) popup.style.display = 'none';
+    document.getElementById('success-popup').style.display = 'none';
 }
