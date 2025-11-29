@@ -1,8 +1,8 @@
 /* ==============================================
-   CUSTOM11.CSS - Estilos para Formulario y JS (Task 3)
+   CUSTOM11.CSS - Estilos para Formulario y JS (FIXED)
    ============================================== */
 
-/* 1. Ajustes de consistencia visual en el formulario */
+/* 1. Ajustes de consistencia visual */
 #contactForm label {
     font-weight: 600;
     margin-bottom: 5px;
@@ -13,22 +13,23 @@
 #contactForm input, 
 #contactForm textarea {
     border-radius: 4px;
+    background-color: #fff; /* Asegurar fondo blanco para que no sea transparente */
 }
 
-/* 2. Colores para el Promedio (Required Task 6) */
-.avg-red { color: #e74c3c !important; font-weight: bold; }   /* 0-4 */
-.avg-orange { color: #e67e22 !important; font-weight: bold; } /* 4-7 */
-.avg-green { color: #27ae60 !important; font-weight: bold; }  /* 7-10 */
+/* 2. Colores para el Promedio */
+.avg-red { color: #e74c3c !important; font-weight: bold; }
+.avg-orange { color: #e67e22 !important; font-weight: bold; }
+.avg-green { color: #27ae60 !important; font-weight: bold; }
 
-/* 3. Popup de Éxito (Required Task 7) */
+/* 3. Popup de Éxito */
 .custom-popup {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5); /* Fondo oscuro */
+    background-color: rgba(0,0,0,0.5);
     z-index: 9999;
     justify-content: center;
     align-items: center;
@@ -63,25 +64,25 @@
     to { opacity: 1; }
 }
 
-/* 4. Validación en tiempo real (Optional Task 1) */
+/* 4. Validación en tiempo real */
 .form-control.is-invalid {
-    border-color: #dc3545 !important; /* Borde rojo */
+    border-color: #dc3545 !important;
     background-image: none !important;
 }
 
 .form-control.is-valid {
-    border-color: #198754 !important; /* Borde verde */
+    border-color: #198754 !important;
 }
 
-/* Mensaje de error pequeño debajo del input */
 .error-msg {
     display: block;
     margin-top: 5px;
     font-size: 0.8em;
     height: 15px; 
+    color: #dc3545;
 }
 
-/* 5. Botón deshabilitado (Optional Task 3) */
+/* 5. Botón deshabilitado */
 #submitBtn:disabled {
     background-color: #6c757d !important;
     border-color: #6c757d !important;
@@ -92,22 +93,40 @@
 }
 
 /* ==============================================
-   CORRECCIÓN FINAL: ESPACIO DE SEGURIDAD
-   Evita que el Footer tape los resultados
+   CORRECCIONES DE SUPERPOSICIÓN (OVERLAP FIXES)
    ============================================== */
 
-#contact {
-    /* Añadimos un "colchón" extra abajo */
-    padding-bottom: 120px !important; 
-    /* Permitimos que el contenido crezca */
-    overflow: visible !important; 
+/* FIX 1: Separar la columna de Información de la del Formulario */
+.info-item {
+    margin-bottom: 30px !important; /* Espacio extra debajo de cada item de contacto */
+    background: #fff; /* Fondo blanco para tapar lo que haya detrás */
+    padding: 20px;    /* Relleno interno */
+    border-radius: 5px;
 }
 
-#form-results {
-    /* Separación extra para la caja de resultados */
-    margin-top: 30px !important;
-    margin-bottom: 50px !important;
-    /* Aseguramos que se pinte por encima si hay conflicto */
+/* FIX 2: Separar el Formulario de la izquierda y del fondo */
+#contactForm {
+    background: #fff;
+    padding: 20px; /* Dar aire alrededor del formulario */
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05); /* Sombra suave para separarlo visualmente */
+}
+
+/* FIX 3: Espacio gigante abajo para que el Footer NO tape los resultados */
+#contact {
+    padding-bottom: 150px !important; /* Colchón de seguridad grande */
+    overflow: visible !important;
     position: relative;
-    z-index: 50; 
+    z-index: 5;
+}
+
+/* FIX 4: Asegurar que la caja de resultados flote por encima y tenga espacio */
+#form-results {
+    margin-top: 40px !important;
+    margin-bottom: 60px !important;
+    position: relative;
+    z-index: 10;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    clear: both; /* Evita que flote al lado de nada */
 }
