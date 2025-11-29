@@ -56,10 +56,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) { isValid = false; errorMessage = 'Invalid email format.'; }
                     break;
                 case 'phone':
-                    if (value.length < 14 || !value.startsWith('+370')) { 
-                            isValid = false; 
-                            errorMessage = 'Format: +370 6xx xxxxx'; 
-                     }
+                    // SOLUCIÓN NUEVA: Contamos solo los dígitos reales
+                    const digits = value.replace(/\D/g, ''); // Elimina +, espacios, etc.
+                    
+                    // Necesitamos exactamente 11 dígitos (ej: 37060012345)
+                    if (digits.length < 11) { 
+                        isValid = false; 
+                        errorMessage = 'Format: +370 6xx xxxxx'; 
+                    }
                     break;
                 case 'rating1':
                 case 'rating2':
