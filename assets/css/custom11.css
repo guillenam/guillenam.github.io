@@ -1,5 +1,5 @@
 /* ==============================================
-   CUSTOM11.CSS - Estilos para el Formulario y JS
+   CUSTOM11.CSS - Estilos para Formulario y JS (Task 3)
    ============================================== */
 
 /* 1. Ajustes de consistencia visual en el formulario */
@@ -8,6 +8,11 @@
     margin-bottom: 5px;
     font-size: 0.9rem;
     color: #444;
+}
+
+#contactForm input, 
+#contactForm textarea {
+    border-radius: 4px;
 }
 
 /* 2. Colores para el Promedio (Required Task 6) */
@@ -84,4 +89,25 @@
     opacity: 0.6 !important;
     transform: none !important;
     box-shadow: none !important;
+}
+
+/* ==============================================
+   CORRECCIÓN FINAL: ESPACIO DE SEGURIDAD
+   Evita que el Footer tape los resultados
+   ============================================== */
+
+#contact {
+    /* Añadimos un "colchón" extra abajo */
+    padding-bottom: 120px !important; 
+    /* Permitimos que el contenido crezca */
+    overflow: visible !important; 
+}
+
+#form-results {
+    /* Separación extra para la caja de resultados */
+    margin-top: 30px !important;
+    margin-bottom: 50px !important;
+    /* Aseguramos que se pinte por encima si hay conflicto */
+    position: relative;
+    z-index: 50; 
 }
