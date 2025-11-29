@@ -1,0 +1,87 @@
+/* ==============================================
+   CUSTOM11.CSS - Estilos para el Formulario y JS
+   ============================================== */
+
+/* 1. Ajustes de consistencia visual en el formulario */
+#contactForm label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+/* 2. Colores para el Promedio (Required Task 6) */
+.avg-red { color: #e74c3c !important; font-weight: bold; }   /* 0-4 */
+.avg-orange { color: #e67e22 !important; font-weight: bold; } /* 4-7 */
+.avg-green { color: #27ae60 !important; font-weight: bold; }  /* 7-10 */
+
+/* 3. Popup de Éxito (Required Task 7) */
+.custom-popup {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Fondo oscuro */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 400px;
+}
+
+.popup-content button {
+    background-color: #0563bb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.popup-content button:hover { background-color: #04529c; }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 4. Validación en tiempo real (Optional Task 1) */
+.form-control.is-invalid {
+    border-color: #dc3545 !important; /* Borde rojo */
+    background-image: none !important;
+}
+
+.form-control.is-valid {
+    border-color: #198754 !important; /* Borde verde */
+}
+
+/* Mensaje de error pequeño debajo del input */
+.error-msg {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8em;
+    height: 15px; 
+}
+
+/* 5. Botón deshabilitado (Optional Task 3) */
+#submitBtn:disabled {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
