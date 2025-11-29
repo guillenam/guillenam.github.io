@@ -1,5 +1,5 @@
 /* ==============================================
-   CUSTOM11.CSS - VERSIÓN FINAL (SIN SALTO DE LÍNEA)
+   CUSTOM11.CSS - VERSIÓN "ANTI-ESTIRAMIENTO" (FINAL)
    ============================================== */
 
 /* --- 1. Estilos Visuales del Formulario --- */
@@ -72,37 +72,41 @@
 #submitBtn:disabled { background-color: #6c757d !important; border-color: #6c757d !important; cursor: not-allowed !important; opacity: 0.6 !important; }
 
 /* ==============================================
-   CORRECCIÓN FINAL: QUITAR EL SALTO (CLEAR)
+   CORRECCIÓN FINAL: EVITAR QUE EL FORMULARIO SE ESTIRE
    ============================================== */
 
-/* Fondo para evitar transparencias */
-.info-item, #contactForm {
+.info-item {
     background: #fff;
-    position: relative;
-    z-index: 5;
+    padding: 20px;
     border-radius: 8px;
+    margin-bottom: 30px;
 }
 
-/* Quitar márgenes extra del formulario */
+/* AQUÍ ESTÁ LA CLAVE: Forzamos altura automática */
 #contactForm {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    
+    /* Evita que se estire para igualar a la columna izquierda */
+    height: auto !important; 
+    min-height: 0 !important;
+    
+    /* Quitamos márgenes inferiores */
     margin-bottom: 0 !important;
-    padding-bottom: 20px !important;
+    padding-bottom: 10px !important;
 }
 
-/* Ocultar elementos fantasma de la plantilla */
+/* Elementos ocultos de la plantilla que a veces ocupan espacio */
 .php-email-form .loading,
 .php-email-form .error-message,
 .php-email-form .sent-message {
     display: none !important; 
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
 }
 
-/* CAJA DE RESULTADOS: Sin 'clear: both' para que no baje al sótano */
+/* CAJA DE RESULTADOS: Pegada arriba */
 #form-results {
-    /* Margen pequeño para separarlo del botón */
-    margin-top: 20px !important; 
+    margin-top: 15px !important; /* Espacio pequeño */
     margin-bottom: 0px !important;
     padding: 20px !important;
     
@@ -115,10 +119,6 @@
     border-radius: 8px;
     
     width: 100% !important;
-    
-    /* ELIMINADO: clear: both !important; <--- ESTO ERA EL CULPABLE */
-    
-    /* Texto visible */
     color: #333 !important;
     text-align: left !important;
 }
