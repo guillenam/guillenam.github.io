@@ -56,7 +56,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) { isValid = false; errorMessage = 'Invalid email format.'; }
                     break;
                 case 'phone':
-                    if (value.length < 15 || !value.startsWith('+370')) { isValid = false; errorMessage = 'Format: +370 6xx xxxxx'; }
+                    if (value.length < 14 || !value.startsWith('+370')) { 
+                            isValid = false; 
+                            errorMessage = 'Format: +370 6xx xxxxx'; 
+                     }
                     break;
                 case 'rating1':
                 case 'rating2':
