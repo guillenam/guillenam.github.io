@@ -1,5 +1,5 @@
 /* ==============================================
-   CUSTOM11.CSS - Estilos para Formulario y JS (FIXED FINAL)
+   CUSTOM11.CSS - Estilos para Formulario y JS (VERSIÓN FINAL)
    ============================================== */
 
 /* 1. Ajustes de consistencia visual */
@@ -13,15 +13,16 @@
 #contactForm input, 
 #contactForm textarea {
     border-radius: 4px;
-    background-color: #fff;
+    background-color: #fff !important; /* Fondo blanco forzado */
+    color: #333 !important; /* Texto negro al escribir */
 }
 
-/* 2. Colores para el Promedio */
+/* 2. Colores para el Promedio (Task 6) */
 .avg-red { color: #e74c3c !important; font-weight: bold; }
 .avg-orange { color: #e67e22 !important; font-weight: bold; }
 .avg-green { color: #27ae60 !important; font-weight: bold; }
 
-/* 3. Popup de Éxito */
+/* 3. Popup de Éxito (Task 7) */
 .custom-popup {
     display: none;
     position: fixed;
@@ -64,7 +65,7 @@
     to { opacity: 1; }
 }
 
-/* 4. Validación en tiempo real */
+/* 4. Validación en tiempo real (Optional Task 1) */
 .form-control.is-invalid {
     border-color: #dc3545 !important;
     background-image: none !important;
@@ -82,7 +83,7 @@
     color: #dc3545;
 }
 
-/* 5. Botón deshabilitado */
+/* 5. Botón deshabilitado (Optional Task 3) */
 #submitBtn:disabled {
     background-color: #6c757d !important;
     border-color: #6c757d !important;
@@ -93,7 +94,7 @@
 }
 
 /* ==============================================
-   CORRECCIONES DE SUPERPOSICIÓN (ESTRATEGIA BLOQUE SÓLIDO)
+   CORRECCIONES VISUALES (SOLUCIÓN SUPERPOSICIÓN Y COLOR)
    ============================================== */
 
 /* FIX 1: Info Item separado */
@@ -112,31 +113,48 @@
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
 }
 
-/* FIX 3: Sección de contacto flexible */
+/* FIX 3: Sección de contacto flexible y con espacio al final */
 #contact {
-    /* Quitamos alturas fijas y dejamos que crezca lo que necesite */
     height: auto !important;
-    min-height: 100vh !important; /* Mínimo toda la pantalla */
-    padding-bottom: 50px !important;
+    min-height: 100vh !important; 
+    padding-bottom: 150px !important; /* Espacio extra para que quepan los resultados */
     display: block !important;
+    overflow: visible !important;
 }
 
-/* FIX 4: Resultados como bloque sólido que empuja */
+/* FIX 4: Resultados (Posición y Color de Texto) */
 #form-results {
-    /* display: block lo pone el JS, pero aquí aseguramos el margen */
+    /* Espacio y Posición */
     margin-top: 50px !important; 
-    margin-bottom: 100px !important; /* Empuja el footer hacia abajo */
+    margin-bottom: 100px !important; 
     padding: 30px !important;
     
-    position: relative !important; /* Vuelve al flujo normal */
-    z-index: 100 !important; /* Por encima de todo */
+    position: relative !important; 
+    z-index: 100 !important; 
     
-    background-color: #f9f9f9;
+    /* Diseño de la caja */
+    background-color: #f8f9fa !important; 
     border: 1px solid #e1e1e1;
     border-left: 5px solid #0563bb;
     border-radius: 8px;
     
-    /* Truco: clear both asegura que nada flote a sus lados */
     clear: both !important;
     width: 100% !important;
+
+    /* COLOR DE TEXTO OBLIGATORIO (Para que no se vea blanco invisible) */
+    color: #333333 !important;
+    text-align: left !important;
+}
+
+/* Asegurar color negro en hijos del resultado */
+#form-results h3 {
+    color: #0563bb !important;
+    margin-bottom: 20px !important;
+}
+
+#form-results p, 
+#form-results span, 
+#form-results strong {
+    color: #333333 !important;
+    font-size: 1rem !important;
 }
