@@ -1,5 +1,5 @@
 /* ==============================================
-   CUSTOM.JS - Versión Final (Con corrección de altura)
+   CUSTOM.JS - VERSIÓN FINAL SIN POPUP GRIS
    ============================================== */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
     const submitBtn = document.getElementById('submitBtn');
     
+    // Inputs
     const nameInput = document.getElementById('name');
     const surnameInput = document.getElementById('surname');
     const emailInput = document.getElementById('email');
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const addressInput = document.getElementById('address');
     const messageInput = document.getElementById('message');
     
+    // Ratings
     const ratings = [
         document.getElementById('rating1'),
         document.getElementById('rating2'),
@@ -141,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const contentDiv = document.getElementById('results-content');
             
             if(resultsDiv) {
-                // 1. Mostrar el bloque
+                // Mostrar la caja de resultados
                 resultsDiv.style.display = 'block';
                 
                 contentDiv.innerHTML = `
@@ -156,25 +158,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     </p>
                 `;
 
-                // --- SOLUCIÓN AÑADIDA: ARREGLAR SUPERPOSICIÓN DEL FOOTER ---
-                
-                // A. Refrescar AOS para que recalcule la altura de la página
-                if (typeof AOS !== 'undefined') {
-                    setTimeout(() => { AOS.refresh(); }, 100); 
-                }
-
-                // B. Bajar la pantalla automáticamente hasta los resultados para verlos bien
-                setTimeout(() => {
-                    resultsDiv.scrollIntoView({ behavior: "smooth", block: "center" });
-                }, 200);
+                // Hacemos scroll suave hasta los resultados para que el usuario los vea
+                resultsDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
             }
 
-            const popup = document.getElementById('success-popup');
-            if(popup) popup.style.display = 'flex';
+            // --- HEMOS ELIMINADO LA PARTE QUE MOSTRABA EL POPUP GRIS ---
         });
     }
 });
-
-window.closePopup = function() {
-    document.getElementById('success-popup').style.display = 'none';
-}
