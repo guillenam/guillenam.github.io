@@ -1,5 +1,5 @@
 /* ==============================================
-   CUSTOM11.CSS - Estilos para Formulario y JS (FIXED)
+   CUSTOM11.CSS - Estilos para Formulario y JS (FIXED FINAL)
    ============================================== */
 
 /* 1. Ajustes de consistencia visual */
@@ -13,7 +13,7 @@
 #contactForm input, 
 #contactForm textarea {
     border-radius: 4px;
-    background-color: #fff; /* Asegurar fondo blanco para que no sea transparente */
+    background-color: #fff;
 }
 
 /* 2. Colores para el Promedio */
@@ -93,40 +93,50 @@
 }
 
 /* ==============================================
-   CORRECCIONES DE SUPERPOSICIÓN (OVERLAP FIXES)
+   CORRECCIONES DE SUPERPOSICIÓN (ESTRATEGIA BLOQUE SÓLIDO)
    ============================================== */
 
-/* FIX 1: Separar la columna de Información de la del Formulario */
+/* FIX 1: Info Item separado */
 .info-item {
-    margin-bottom: 30px !important; /* Espacio extra debajo de cada item de contacto */
-    background: #fff; /* Fondo blanco para tapar lo que haya detrás */
-    padding: 20px;    /* Relleno interno */
+    margin-bottom: 30px !important;
+    background: #fff;
+    padding: 20px;
     border-radius: 5px;
 }
 
-/* FIX 2: Separar el Formulario de la izquierda y del fondo */
+/* FIX 2: Formulario separado */
 #contactForm {
     background: #fff;
-    padding: 20px; /* Dar aire alrededor del formulario */
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05); /* Sombra suave para separarlo visualmente */
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
 }
 
-/* FIX 3: Espacio gigante abajo para que el Footer NO tape los resultados */
+/* FIX 3: Sección de contacto flexible */
 #contact {
-    padding-bottom: 150px !important; /* Colchón de seguridad grande */
-    overflow: visible !important;
-    position: relative;
-    z-index: 5;
+    /* Quitamos alturas fijas y dejamos que crezca lo que necesite */
+    height: auto !important;
+    min-height: 100vh !important; /* Mínimo toda la pantalla */
+    padding-bottom: 50px !important;
+    display: block !important;
 }
 
-/* FIX 4: Asegurar que la caja de resultados flote por encima y tenga espacio */
+/* FIX 4: Resultados como bloque sólido que empuja */
 #form-results {
-    margin-top: 40px !important;
-    margin-bottom: 60px !important;
-    position: relative;
-    z-index: 10;
+    /* display: block lo pone el JS, pero aquí aseguramos el margen */
+    margin-top: 50px !important; 
+    margin-bottom: 100px !important; /* Empuja el footer hacia abajo */
+    padding: 30px !important;
+    
+    position: relative !important; /* Vuelve al flujo normal */
+    z-index: 100 !important; /* Por encima de todo */
+    
     background-color: #f9f9f9;
     border: 1px solid #e1e1e1;
-    clear: both; /* Evita que flote al lado de nada */
+    border-left: 5px solid #0563bb;
+    border-radius: 8px;
+    
+    /* Truco: clear both asegura que nada flote a sus lados */
+    clear: both !important;
+    width: 100% !important;
 }
