@@ -46,16 +46,13 @@
   <main class="main">
 
     <section id="hero" class="hero section light-background" style="position: relative; overflow: hidden;">
-
       <div class="floating-shape" style="top: 10%; left: 5%;"></div>
       <div class="floating-shape" style="bottom: 15%; right: 10%; animation-delay: 1s;"></div>
-
       <div class="container" data-aos="zoom-out" style="position: relative; z-index: 2;">
         <div class="row justify-content-center">
           <div class="col-lg-9">
             <h2 class="anim-fade-in">Guillermo Navarro</h2>
             <p class="anim-fade-in" style="animation-delay: 0.5s;">I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer">Designer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-            
             <div class="social-links">
               <a href="#" class="anim-hover-pulse"><i class="bi bi-twitter-x"></i></a>
               <a href="#" class="anim-hover-pulse"><i class="bi bi-facebook"></i></a>
@@ -65,11 +62,9 @@
           </div>
         </div>
       </div>
-
     </section>
 
     <section id="about" class="about section anim-fade-in anim-gradient-bg">
-
       <div class="container section-title anim-fade-in">
         <h2>About</h2>
         <p>I am Guillermo Navarro Montañes, an Telecomunication Engineering student currently completing an Erasmus program at Vilnius Gediminas Technical University in Lithuania. 
@@ -78,9 +73,7 @@
           My goal is to combine creativity and data-driven solutions to make processes more efficient and user-centered. 
           I enjoy teamwork, problem-solving, and learning new technologies that can improve productivity and sustainability.</p>
       </div>
-
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
             <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
@@ -110,10 +103,10 @@
             </div>
           </div>
         </div>
-
       </div>
+    </section>
 
-    </section><section id="stats" class="stats section">
+    <section id="stats" class="stats section">
       <h2 class="visually-hidden">Statistics</h2>
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4">
@@ -199,7 +192,6 @@
       </div>
     </section>
 
-    
     <section id="resume" class="resume section">
       <div class="container section-title" data-aos="fade-up">
         <h2>Resume</h2>
@@ -430,21 +422,74 @@
               <div><h3>Email Us</h3><p>info@example.com</p></div>
             </div>
           </div>
+
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form id="contactForm" class="php-email-form" data-aos="fade-up" data-aos-delay="200" novalidate>
               <div class="row gy-4">
-                <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Your Name" required=""></div>
-                <div class="col-md-6 "><input type="email" class="form-control" name="email" placeholder="Your Email" required=""></div>
-                <div class="col-md-12"><input type="text" class="form-control" name="subject" placeholder="Subject" required=""></div>
-                <div class="col-md-12"><textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea></div>
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                  <button type="submit" class="anim-hover-pulse">Send Message</button>
+
+                <div class="col-md-6">
+                  <label for="name">Name</label>
+                  <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+                  <small class="error-msg text-danger"></small>
                 </div>
+
+                <div class="col-md-6">
+                  <label for="surname">Surname</label>
+                  <input type="text" name="surname" id="surname" class="form-control" placeholder="Your Surname" required>
+                  <small class="error-msg text-danger"></small>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <small class="error-msg text-danger"></small>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="phone">Phone Number (+370 6xx xxxxx)</label>
+                  <input type="text" class="form-control" name="phone" id="phone" placeholder="+370 6xx xxxxx" maxlength="16" required>
+                  <small class="error-msg text-danger"></small>
+                </div>
+
+                <div class="col-md-12">
+                  <label for="address">Address</label>
+                  <input type="text" class="form-control" name="address" id="address" placeholder="Street, City, Country" required>
+                  <small class="error-msg text-danger"></small>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="rating1">Service (1-10)</label>
+                  <input type="number" class="form-control rating-input" id="rating1" name="rating1" min="1" max="10" placeholder="1-10" required>
+                  <small class="error-msg text-danger"></small>
+                </div>
+                <div class="col-md-4">
+                  <label for="rating2">Response (1-10)</label>
+                  <input type="number" class="form-control rating-input" id="rating2" name="rating2" min="1" max="10" placeholder="1-10" required>
+                  <small class="error-msg text-danger"></small>
+                </div>
+                <div class="col-md-4">
+                  <label for="rating3">Support (1-10)</label>
+                  <input type="number" class="form-control rating-input" id="rating3" name="rating3" min="1" max="10" placeholder="1-10" required>
+                  <small class="error-msg text-danger"></small>
+                </div>
+
+                <div class="col-md-12">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" name="message" id="message" rows="6" placeholder="Message" required></textarea>
+                  <small class="error-msg text-danger"></small>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <button type="submit" id="submitBtn" class="anim-hover-pulse" disabled style="opacity: 0.6; cursor: not-allowed;">Send Message</button>
+                </div>
+
               </div>
             </form>
+
+            <div id="form-results" class="mt-5 p-4" style="display: none; background: #f9f9f9; border-radius: 8px; border-left: 5px solid #0563bb;">
+                <h3>Submission Results:</h3>
+                <div id="results-content"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -454,12 +499,10 @@
 
   <footer id="footer" class="footer position-relative light-background">
     <div class="container">
-      
       <div class="custom-loader-container mb-3">
           <div class="custom-loader"></div>
           <span style="margin-left: 15px;">System Active</span>
       </div>
-
       <h3 class="sitename">Guillermo Navarro</h3>
       <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
       <div class="social-links d-flex justify-content-center">
@@ -480,8 +523,16 @@
     </div>
   </footer>
 
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="success-popup" class="custom-popup">
+    <div class="popup-content">
+      <i class="bi bi-check-circle-fill" style="color: green; font-size: 3rem;"></i>
+      <h3>Success!</h3>
+      <p>Form submitted successfully!</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
 
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -496,7 +547,7 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js" defer></script>
 
 </body>
-
 </html>
