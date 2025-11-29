@@ -1,5 +1,5 @@
 /* ==============================================
-   CUSTOM11.CSS - Estilos para Formulario y JS (VERSIÓN FINAL COMPACTA)
+   CUSTOM11.CSS - VERSIÓN "SIN HUECOS" (FINAL)
    ============================================== */
 
 /* --- 1. Estilos Visuales del Formulario --- */
@@ -13,16 +13,16 @@
 #contactForm input, 
 #contactForm textarea {
     border-radius: 4px;
-    background-color: #fff !important; /* Fondo blanco */
-    color: #333 !important; /* Texto negro al escribir */
+    background-color: #fff !important; 
+    color: #333 !important; 
 }
 
-/* --- 2. Colores para el Promedio (Task 6) --- */
+/* --- 2. Colores --- */
 .avg-red { color: #e74c3c !important; font-weight: bold; }
 .avg-orange { color: #e67e22 !important; font-weight: bold; }
 .avg-green { color: #27ae60 !important; font-weight: bold; }
 
-/* --- 3. Popup de Éxito (Task 7) --- */
+/* --- 3. Popup --- */
 .custom-popup {
     display: none;
     position: fixed;
@@ -65,58 +65,40 @@
     to { opacity: 1; }
 }
 
-/* --- 4. Validación (Optional Task 1) --- */
-.form-control.is-invalid {
-    border-color: #dc3545 !important;
-    background-image: none !important;
-}
-
-.form-control.is-valid {
-    border-color: #198754 !important;
-}
-
-.error-msg {
-    display: block;
-    margin-top: 5px;
-    font-size: 0.8em;
-    height: 15px; 
-    color: #dc3545;
-}
-
-/* --- 5. Botón Deshabilitado (Optional Task 3) --- */
-#submitBtn:disabled {
-    background-color: #6c757d !important;
-    border-color: #6c757d !important;
-    cursor: not-allowed !important;
-    opacity: 0.6 !important;
-    transform: none !important;
-    box-shadow: none !important;
-}
+/* --- 4. Validación --- */
+.form-control.is-invalid { border-color: #dc3545 !important; background-image: none !important; }
+.form-control.is-valid { border-color: #198754 !important; }
+.error-msg { display: block; margin-top: 5px; font-size: 0.8em; height: 15px; color: #dc3545; }
+#submitBtn:disabled { background-color: #6c757d !important; border-color: #6c757d !important; cursor: not-allowed !important; opacity: 0.6 !important; }
 
 /* ==============================================
-   CORRECCIONES DE LAYOUT (POSICIÓN Y ESPACIO)
+   CORRECCIÓN FINAL: PEGAR RESULTADOS AL BOTÓN
    ============================================== */
 
-/* Fondo blanco para elementos para evitar transparencias raras */
+/* 1. Fondo blanco para elementos */
 .info-item, #contactForm {
     background: #fff;
     position: relative;
     z-index: 5;
-    padding: 20px;
     border-radius: 8px;
 }
 
-/* SECCIÓN DE CONTACTO: Altura automática y espacio abajo */
-#contact {
-    height: auto !important;
-    min-height: auto !important; /* Quitamos el 100vh para que no cree huecos gigantes */
-    padding-bottom: 100px !important; /* Espacio suficiente para que quepa el resultado */
-    overflow: visible !important;
+/* 2. ELIMINAR ESPACIO SOBRANTE DEL FORMULARIO */
+#contactForm {
+    margin-bottom: 0 !important; /* Cero margen abajo */
+    padding-bottom: 20px !important;
 }
 
-/* CAJA DE RESULTADOS: Pegada al botón y visible */
+/* Asegurar que los mensajes ocultos de la plantilla no ocupen espacio */
+.php-email-form .loading,
+.php-email-form .error-message,
+.php-email-form .sent-message {
+    display: none; 
+}
+
+/* 3. PEGAR LA CAJA DE RESULTADOS ARRIBA */
 #form-results {
-    margin-top: 20px !important; /* Pega la caja justo debajo del botón */
+    margin-top: 20px !important; /* Solo 20px de separación */
     margin-bottom: 0px !important;
     padding: 20px !important;
     
@@ -130,13 +112,18 @@
     
     width: 100% !important;
     
-    /* Asegurar texto visible (NEGRO) */
+    /* Asegurar texto visible */
     color: #333 !important;
     text-align: left !important;
 }
 
-/* Forzar colores dentro de la caja de resultados */
+/* 4. SECCIÓN CONTACTO (Altura automática) */
+#contact {
+    height: auto !important;
+    padding-bottom: 100px !important; /* Espacio solo al final del todo para el footer */
+    overflow: visible !important;
+}
+
+/* Estilos de texto dentro de resultados */
 #form-results h3 { color: #0563bb !important; margin-bottom: 15px !important; }
-#form-results p, 
-#form-results span, 
-#form-results strong { color: #333 !important; }
+#form-results p, #form-results span, #form-results strong { color: #333 !important; }
