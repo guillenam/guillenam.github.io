@@ -1,5 +1,5 @@
 /* ==============================================
-   CUSTOM11.CSS - VERSIÓN "SIN HUECOS" (FINAL)
+   CUSTOM11.CSS - VERSIÓN FINAL (SIN SALTO DE LÍNEA)
    ============================================== */
 
 /* --- 1. Estilos Visuales del Formulario --- */
@@ -72,10 +72,10 @@
 #submitBtn:disabled { background-color: #6c757d !important; border-color: #6c757d !important; cursor: not-allowed !important; opacity: 0.6 !important; }
 
 /* ==============================================
-   CORRECCIÓN FINAL: PEGAR RESULTADOS AL BOTÓN
+   CORRECCIÓN FINAL: QUITAR EL SALTO (CLEAR)
    ============================================== */
 
-/* 1. Fondo blanco para elementos */
+/* Fondo para evitar transparencias */
 .info-item, #contactForm {
     background: #fff;
     position: relative;
@@ -83,22 +83,26 @@
     border-radius: 8px;
 }
 
-/* 2. ELIMINAR ESPACIO SOBRANTE DEL FORMULARIO */
+/* Quitar márgenes extra del formulario */
 #contactForm {
-    margin-bottom: 0 !important; /* Cero margen abajo */
+    margin-bottom: 0 !important;
     padding-bottom: 20px !important;
 }
 
-/* Asegurar que los mensajes ocultos de la plantilla no ocupen espacio */
+/* Ocultar elementos fantasma de la plantilla */
 .php-email-form .loading,
 .php-email-form .error-message,
 .php-email-form .sent-message {
-    display: none; 
+    display: none !important; 
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* 3. PEGAR LA CAJA DE RESULTADOS ARRIBA */
+/* CAJA DE RESULTADOS: Sin 'clear: both' para que no baje al sótano */
 #form-results {
-    margin-top: 20px !important; /* Solo 20px de separación */
+    /* Margen pequeño para separarlo del botón */
+    margin-top: 20px !important; 
     margin-bottom: 0px !important;
     padding: 20px !important;
     
@@ -112,18 +116,18 @@
     
     width: 100% !important;
     
-    /* Asegurar texto visible */
+    /* ELIMINADO: clear: both !important; <--- ESTO ERA EL CULPABLE */
+    
+    /* Texto visible */
     color: #333 !important;
     text-align: left !important;
 }
 
-/* 4. SECCIÓN CONTACTO (Altura automática) */
 #contact {
     height: auto !important;
-    padding-bottom: 100px !important; /* Espacio solo al final del todo para el footer */
+    padding-bottom: 100px !important;
     overflow: visible !important;
 }
 
-/* Estilos de texto dentro de resultados */
 #form-results h3 { color: #0563bb !important; margin-bottom: 15px !important; }
 #form-results p, #form-results span, #form-results strong { color: #333 !important; }
