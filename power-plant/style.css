@@ -1,0 +1,155 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #e8f5e9; /* Verde muy suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.dashboard {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 { color: #2e7d32; }
+
+/* GRID */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* TARJETAS */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.visual-box {
+    height: 120px;
+    background-color: #e3f2fd; /* Azul cielo */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/* --- DIBUJO DEL SOL --- */
+.sun-shape {
+    width: 60px;
+    height: 60px;
+    background-color: #fdd835;
+    border-radius: 50%;
+    /* La sombra simulará el brillo */
+    box-shadow: 0 0 0px #fdd835; 
+    opacity: 0.5;
+    transition: all 0.2s ease;
+}
+
+/* --- DIBUJO DEL MOLINO --- */
+.pole {
+    width: 4px;
+    height: 60px;
+    background: #7f8c8d;
+    position: absolute;
+    bottom: 0;
+}
+
+.turbine-shape {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 20px;
+    /* La animación se controla desde JS */
+    animation: spin 0s linear infinite; 
+}
+
+.blade {
+    width: 8px;
+    height: 40px;
+    background: #95a5a6;
+    position: absolute;
+    left: 36px;
+    top: 0;
+    border-radius: 10px;
+    transform-origin: bottom center;
+}
+
+.blade:nth-child(1) { transform: rotate(0deg); }
+.blade:nth-child(2) { transform: rotate(120deg); }
+.blade:nth-child(3) { transform: rotate(240deg); }
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* CONTROLES */
+.controls { margin-bottom: 15px; }
+input[type=range] { width: 100%; cursor: pointer; }
+.output-text { font-weight: bold; color: #2e7d32; }
+
+/* TOTAL */
+.total-card { border: 2px solid #2e7d32; }
+.total-display {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2e7d32;
+    margin: 20px 0;
+}
+
+.energy-bar-container {
+    width: 100%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.energy-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #f1c40f, #2ecc71);
+    transition: width 0.3s ease;
+}
+
+#status-msg { font-size: 0.9rem; color: #777; }
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+}
+.back-link:hover { text-decoration: underline; }
