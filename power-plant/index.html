@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPower Plant Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="dashboard">
+        <header>
+            <h1>🌱 EcoPower Control</h1>
+            <p>Renewable Energy Simulator</p>
+        </header>
+
+        <div class="grid-container">
+            
+            <div class="card solar">
+                <h2>☀️ Solar Panel</h2>
+                <div class="visual-box">
+                    <div id="sun" class="sun-shape"></div>
+                </div>
+                <div class="controls">
+                    <label>Sun Intensity: <span id="sun-val">0</span>%</label>
+                    <input type="range" id="sun-slider" min="0" max="100" value="0">
+                </div>
+                <p class="output-text">Generating: <span id="solar-kw">0</span> kW</p>
+            </div>
+
+            <div class="card wind">
+                <h2>💨 Wind Turbine</h2>
+                <div class="visual-box">
+                    <div id="turbine" class="turbine-shape">
+                        <div class="blade"></div>
+                        <div class="blade"></div>
+                        <div class="blade"></div>
+                    </div>
+                    <div class="pole"></div>
+                </div>
+                <div class="controls">
+                    <label>Wind Speed: <span id="wind-val">0</span> km/h</label>
+                    <input type="range" id="wind-slider" min="0" max="100" value="0">
+                </div>
+                <p class="output-text">Generating: <span id="wind-kw">0</span> kW</p>
+            </div>
+
+            <div class="card total">
+                <h2>⚡ Total Production</h2>
+                <div class="total-display">
+                    <span id="total-kw">0</span> <small>kW</small>
+                </div>
+                
+                <div class="energy-bar-container">
+                    <div id="energy-bar" class="energy-bar"></div>
+                </div>
+                <p id="status-msg">System Idle</p>
+            </div>
+
+        </div>
+
+        <footer>
+            <a href="../index.html" class="back-link">← Back to Resume</a>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
