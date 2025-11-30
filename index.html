@@ -23,11 +23,7 @@
 
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <link href="assets/css/custom.css" rel="stylesheet">
-  <link href="assets/css/custom10.css" rel="stylesheet">
-  <link href="assets/css/custom11.css" rel="stylesheet"> 
-  <link href="assets/css/custom12.css" rel="stylesheet"> 
-</head>
+  <link href="assets/css/custom.css" rel="stylesheet">   <link href="assets/css/custom10.css" rel="stylesheet"> <link href="assets/css/custom11.css" rel="stylesheet"> <link href="assets/css/custom12.css" rel="stylesheet"> </head>
 
 <body class="index-page">
 
@@ -40,6 +36,9 @@
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
         <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Services</span></a></li>
+        
+        <li><a href="#memory-game"><i class="bi bi-controller navicon"></i><span>Minigame</span></a></li>
+        
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
       </ul>
     </nav>
@@ -55,7 +54,6 @@
           <div class="col-lg-9">
             <h2 class="anim-fade-in">Guillermo Navarro</h2>
             <p class="anim-fade-in" style="animation-delay: 0.5s;">I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer">Designer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-            
             <div class="social-links">
               <a href="#" class="anim-hover-pulse"><i class="bi bi-twitter-x"></i></a>
               <a href="#" class="anim-hover-pulse"><i class="bi bi-facebook"></i></a>
@@ -195,7 +193,6 @@
       </div>
     </section>
 
-    
     <section id="resume" class="resume section">
       <div class="container section-title" data-aos="fade-up">
         <h2>Resume</h2>
@@ -408,24 +405,19 @@
 
     <section id="memory-game" class="section memory-section">
       <div class="container" data-aos="fade-up">
-        
         <div class="section-title">
           <h2>Memory Game</h2>
           <p>Challenge your brain! Match the pairs with the lowest moves possible.</p>
         </div>
-
         <div class="game-interface">
-          
           <div class="difficulty-selector mb-4 text-center">
             <div class="btn-group" role="group">
               <input type="radio" class="btn-check" name="difficulty" id="easy" autocomplete="off" checked>
               <label class="btn btn-outline-primary" for="easy">Easy (4x3)</label>
-
               <input type="radio" class="btn-check" name="difficulty" id="hard" autocomplete="off">
               <label class="btn btn-outline-primary" for="hard">Hard (6x4)</label>
             </div>
           </div>
-
           <div class="stats-dashboard d-flex justify-content-center gap-3 gap-md-5 mb-4">
             <div class="stat-item">
               <i class="bi bi-cursor-fill text-primary"></i> 
@@ -444,17 +436,14 @@
               <span>Best (Hard): <b id="best-hard">-</b></span>
             </div>
           </div>
-
           <div class="text-center mb-4">
             <button id="btn-start" class="btn btn-success px-4 me-2">Start Game</button>
             <button id="btn-restart" class="btn btn-secondary px-4" disabled>Restart</button>
           </div>
-
           <div class="game-container">
             <div id="game-grid" class="memory-grid">
               <div class="placeholder-msg">Select difficulty and press Start!</div>
             </div>
-
             <div id="win-overlay" class="win-overlay">
               <div class="win-content">
                 <i class="bi bi-stars text-warning display-1"></i>
@@ -464,7 +453,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
