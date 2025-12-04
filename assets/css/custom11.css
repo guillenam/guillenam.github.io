@@ -17,10 +17,26 @@
     color: #333 !important; 
 }
 
-/* --- 2. Colores --- */
-.avg-red { color: #e74c3c !important; font-weight: bold; }
-.avg-orange { color: #e67e22 !important; font-weight: bold; }
-.avg-green { color: #27ae60 !important; font-weight: bold; }
+/* --- 2. Colores para el Promedio (CORREGIDO CON MÁS FUERZA) --- */
+
+/* Usamos selectores muy específicos para ganar al color negro por defecto */
+#form-results span.avg-red { 
+    color: #e74c3c !important; 
+    font-weight: bold; 
+    font-size: 1.2rem;
+}
+
+#form-results span.avg-orange { 
+    color: #e67e22 !important; 
+    font-weight: bold; 
+    font-size: 1.2rem;
+}
+
+#form-results span.avg-green { 
+    color: #27ae60 !important; 
+    font-weight: bold; 
+    font-size: 1.2rem;
+}
 
 /* --- 3. Popup --- */
 .custom-popup {
